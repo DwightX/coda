@@ -1,7 +1,7 @@
 {
   "name": "farm-hq-technical-interview-project",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "react-scripts build",
     "check-types": "yarn tsc --noEmit",
