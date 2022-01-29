@@ -2,10 +2,11 @@ import { fetchDeviceEvents, getAllDeviceEvents } from "../reducers";
 import { useDispatch, useSelector } from "react-redux";
 import { DeviceEvent } from "../types";
 import React from "react";
-
+import DeviceReels from "../components/DeviceReels";
+import DevicePumps from "../components/DevicePumps";
+import Timestamp from "../components/Timestamp";
 
 function DevicesDetails({ eventId }: { eventId: string }): JSX.Element {
-
   const dispatch = useDispatch();
   React.useEffect(
     /**
@@ -16,19 +17,23 @@ function DevicesDetails({ eventId }: { eventId: string }): JSX.Element {
     },
     [dispatch]
   );
-  
-    // TODO: Improve this view
 
-    const events: DeviceEvent[] = useSelector(getAllDeviceEvents);
+  // TODO: Improve this view
 
-    const eventDetails: DeviceEvent | undefined  =  events?.find((event) => {
-      return event?.id?.toString() === eventId;
-    });
-    console.log(eventDetails);
-  
-    return (
-    <div id="event-page">{eventDetails?.device_alias}</div>
-    )
-  }
+  const events: DeviceEvent[] = useSelector(getAllDeviceEvents);
 
-  export default DevicesDetails;
+  const eventDetails: DeviceEvent | undefined = events?.find((event) => {
+    return event?.id?.toString() === eventId;
+  });
+
+  return (
+    <div className="glossy" id="event-page">
+      <h1 className="mainHeader">Device : <span className="spanHeader">{eventDetails?.device_alias}</span></h1>
+      <DeviceReels eventId={eventId} />
+      <DevicePumps eventId={eventId} />
+      <Timestamp eventId={eventId} />
+    </div>
+  );
+}
+
+export default DevicesDetails;

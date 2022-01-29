@@ -8,10 +8,11 @@ a{
     
 }
 .deviceTitle{
-    color: black;
+    color: rgb(255, 255, 255);
     text-transform:capitalize;
     font-size: 1.5rem;
     text-align: center;
+    margin: 0;
 }
 .deviceWrapper{
     background-color: rgb(247, 247, 247);
@@ -23,4 +24,21 @@ a{
 }
 .deviceData p{
     font-size: 15px;
+}
+.dividerHr{
+    color: black;
+    width: 100px;   
+}
+.glossy{
+    padding:10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2) !important;  
+    border-radius: 5px !important;
+    background-color: rgba(255, 255, 255, .15) !important;
+}
+.mainHeader{
+    color: #e5be20;
+    text-transform: capitalize;
+}
+.spanHeader{
+    color: white;
 }
