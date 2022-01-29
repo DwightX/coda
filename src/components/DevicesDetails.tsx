@@ -18,8 +18,6 @@ function DevicesDetails({ eventId }: { eventId: string }): JSX.Element {
     [dispatch]
   );
 
-  // TODO: Improve this view
-
   const events: DeviceEvent[] = useSelector(getAllDeviceEvents);
 
   const eventDetails: DeviceEvent | undefined = events?.find((event) => {
@@ -28,7 +26,10 @@ function DevicesDetails({ eventId }: { eventId: string }): JSX.Element {
 
   return (
     <div className="glossy" id="event-page">
-      <h1 className="mainHeader">Device : <span className="spanHeader">{eventDetails?.device_alias}</span></h1>
+      <h1 className="mainHeader">
+        Device :{" "}
+        <span className="spanHeader">{eventDetails?.device_alias}</span>
+      </h1>
       <DeviceReels eventId={eventId} />
       <DevicePumps eventId={eventId} />
       <Timestamp eventId={eventId} />

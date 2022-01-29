@@ -2,6 +2,7 @@ import { fetchDeviceEvents, getAllDeviceEvents } from "../reducers";
 import { useDispatch, useSelector } from "react-redux";
 import { DeviceEvent } from "../types";
 import React from "react";
+import Slider from "@mui/material/Slider";
 
 function DevicePumps({ eventId }: { eventId: string }): JSX.Element {
   const dispatch = useDispatch();
@@ -26,11 +27,32 @@ function DevicePumps({ eventId }: { eventId: string }): JSX.Element {
 
   let pumpInformation;
   if (hasPump === "PHI") {
-    pumpInformation = <p><h2>Water Status</h2>Water Pressure High {pumpPressure}</p>;
+    pumpInformation = (
+      <div>
+        <h2 style={{ color: "#e5be20" }}>Water Status</h2>
+        <p style={{ color: "white", fontSize: "1.5em" }}>
+          Water Pressure High {pumpPressure} PSI
+        </p>
+      </div>
+    );
   } else if (hasPump === "PLO") {
-    pumpInformation = <p><h2>Water Status</h2>Water Pressure Low (or off) {pumpPressure}</p>;
+    pumpInformation = (
+      <div>
+        <h2 style={{ color: "#e5be20" }}>Water Status</h2>
+        <p style={{ color: "white", fontSize: "1.5em" }}>
+          Water Pressure Low (or off) {pumpPressure} PSI
+        </p>
+      </div>
+    );
   } else if (hasPump === "POV") {
-    pumpInformation = <p><h2>Water Status</h2>Water Pressure is above safe threshold {pumpPressure}</p>;
+    pumpInformation = (
+      <div>
+        <h2 style={{ color: "#e5be20" }}>Water Status</h2>
+        <p style={{ color: "white", fontSize: "1.5em" }}>
+          Water Pressure is above safe threshold {pumpPressure} PSI
+        </p>
+      </div>
+    );
   }
   return <>{pumpInformation}</>;
 }

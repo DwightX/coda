@@ -20,15 +20,13 @@ function DeviceTimestamp({ eventId }: { eventId: string }): JSX.Element {
     return event?.id?.toString() === eventId;
   });
 
-  // Doesnt works in this component makes no fuckign sense
-  let hasTime = eventDetails?.event_timestamp;
-  let str = hasTime;
-  let date = moment(str);
-  let convertedTime = date.format("llll");
+  const hasTime = eventDetails?.event_timestamp;
+  const date = moment(hasTime);
+  const convertedTime = date.format("llll");
 
   return (
     <>
-      <p>{convertedTime}</p>
+      <p style={{ color: "antiquewhite", fontSize: "1em" }}>{convertedTime}</p>
     </>
   );
 }

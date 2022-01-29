@@ -1,21 +1,10 @@
-import React, { useState } from "react";
-import { generatePath, Link as RouterLink, Route } from "react-router-dom";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { deviceEvents, fetchDeviceEvents, fetchFields } from "../reducers";
-import { Badge } from "@mui/material";
+import { fetchDeviceEvents, fetchFields } from "../reducers";
 import { getAllDeviceEvents } from "../reducers";
 import { useSelector } from "react-redux";
 import Device from "../components/Device";
-import { DeviceEvent } from "../types";
-
-
-
-
-import {
-  Box,
-  List,
-  ListSubheader,
-} from "@mui/material";
+import { Box } from "@mui/material";
 
 const EVENT_PAGE_PATH = "/event-:id";
 
@@ -23,11 +12,6 @@ function DevicesPage({ eventId }: { eventId: string }): JSX.Element {
   // TODO: Improve this view
   const events = useSelector(getAllDeviceEvents);
   const dispatch = useDispatch();
-
-  // if (events && events.length > 0) {
-  //   const [{ device_alias }] = events;
-  //   console.log(device_alias);
-  // }
 
   React.useEffect(
     /**
@@ -52,16 +36,16 @@ function DevicesPage({ eventId }: { eventId: string }): JSX.Element {
   return (
     <div id="events-list">
       <Box
-    className="hh"
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "15px",
-        justifyContent: "space-evenly"
-      }}
-    >
-          <Device/>
-          </Box>
+        className="hh"
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "15px",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <Device />
+      </Box>
     </div>
   );
 }

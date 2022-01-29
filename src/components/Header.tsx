@@ -1,14 +1,11 @@
-import React from 'react';
-import {
-    AppBar, Box, Container, List, ListItem, ListItemText, ListSubheader, Toolbar, Typography
-} from '@mui/material';
-import { Link as RouterLink, Route, Switch } from 'react-router-dom';
-
+import React from "react";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 function Header() {
-  return <div>
-
-<AppBar elevation={1} color="inherit" position="sticky">
+  return (
+    <div>
+      <AppBar elevation={1} color="inherit" position="sticky">
         <Toolbar>
           <Typography
             fontWeight={"bold"}
@@ -20,7 +17,8 @@ function Header() {
           </Typography>
         </Toolbar>
       </AppBar>
-  </div>;
+    </div>
+  );
 }
 
 export default Header;
